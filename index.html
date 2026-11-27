@@ -98,6 +98,31 @@
     --cloud:#2c3640;--cloudShadow:rgba(0,0,0,.5);--cloudOp:.95;
     --h1:linear-gradient(#4a7340,#3a6034 40%);--h1b:#527f47;--h2:linear-gradient(#3a6532,#2d5027 50%);--h2b:#477a3b;
     --tuftFilter:brightness(.6);--rockFilter:brightness(.8);--shadow:rgba(0,0,0,.5)}
+  #scene[data-env=bloodrain]{--sky:linear-gradient(#0d0204 0%,#3a0709 48%,#7a1a14 100%);
+    --sunSize:clamp(70px,12vw,110px);--sunRight:16%;--sunTop:13%;--sunOp:1;
+    --sunBg:radial-gradient(circle at 38% 36%,#e0313a,#9c0f18 55%,#4a050a 100%);
+    --sunGlow:0 0 30px 10px rgba(200,20,30,.55),0 0 90px 36px rgba(140,10,20,.4);
+    --cloud:#2a0c0f;--cloudShadow:rgba(0,0,0,.6);--cloudOp:.9;
+    --h1:linear-gradient(#3b4a2e,#2c3a24 40%);--h1b:#4a5a38;--h2:linear-gradient(#2b3a22,#202c1a 50%);--h2b:#3a4a2c;
+    --tuftFilter:hue-rotate(-50deg) saturate(.6) brightness(.5);--rockFilter:brightness(.72) sepia(.35) saturate(1.3) hue-rotate(-18deg);--shadow:rgba(0,0,0,.6);--starsOp:.55}
+  #scene[data-env=bloodrain] .flash{background:#ff2a2a}
+  .bdrop{position:absolute;top:-30px;width:3px;height:20px;border-radius:0 0 3px 3px;background:linear-gradient(rgba(150,0,10,.2),#b30a14);animation:fall linear infinite}
+  #blood{position:absolute;inset:0;pointer-events:none;display:none;z-index:2;
+    -webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    background:
+      linear-gradient(90deg,transparent 0 8%,#7a0008 8% 12%,transparent 12% 20%,#8d000b 20% 23%,transparent 23% 34%,#7a0008 34% 39%,transparent 39% 52%,#930010 52% 55%,transparent 55% 66%,#7a0008 66% 71%,transparent 71% 80%,#8d000b 80% 84%,transparent 84% 100%) 0 0/100% 78% no-repeat,
+      radial-gradient(ellipse 70% 55% at 45% 18%,rgba(190,10,22,.92),rgba(140,4,14,.78) 60%,rgba(100,0,8,.45) 100%),
+      radial-gradient(circle at 78% 70%,rgba(160,6,16,.85) 0 14%,transparent 15%),
+      radial-gradient(circle at 18% 62%,rgba(150,4,14,.85) 0 11%,transparent 12%),
+      linear-gradient(rgba(110,0,10,.55),rgba(90,0,8,.7))}
+  #scene[data-env=bloodrain] #blood{display:block;animation:bloodglisten 3.2s ease-in-out infinite alternate}
+  @keyframes bloodglisten{from{filter:brightness(.9)}to{filter:brightness(1.25)}}
+  #scene[data-env=bloodrain] .trees{filter:brightness(.13) saturate(.6)}
+  .eyes{position:absolute;width:5px;height:5px;border-radius:50%;background:#ff1a1a;box-shadow:0 0 6px 2px rgba(255,20,20,.8),14px 0 0 0 #ff1a1a,14px 0 6px 2px rgba(255,20,20,.8);animation:blink 4.5s infinite}
+  @keyframes blink{0%,44%,50%,100%{opacity:1}47%{opacity:0}}
+  #collInfo{margin:-6px 0 14px;padding:8px 10px;border-radius:12px;background:#eef4f9;border:2px solid #b3c6d4;font-size:13px;font-weight:700;text-align:center;line-height:1.45;display:none}
+  #collInfo b{font-size:15px}
+  .coll span{cursor:pointer}.coll span.sel{outline:3px solid #ffb000}
   #scene[data-env=volcano]{--sky:linear-gradient(#240c0e 0%,#751d12 50%,#d4562a 100%);--sunOp:0;--cloud:#4a2a28;--cloudShadow:rgba(0,0,0,.5);--cloudOp:.7;
     --h1:linear-gradient(#3d2b27,#2c1f1c 40%);--h1b:#ff6a2a;--h2:linear-gradient(#2b1e1b,#1a1210 50%);--h2b:#e0501f;
     --tuftOp:0;--rockFilter:sepia(.2) brightness(.88);--shadow:rgba(0,0,0,.55)}
@@ -312,6 +337,19 @@
   .xbtn{position:absolute;top:-13px;right:-13px;width:36px;height:36px;border-radius:50%;border:3px solid var(--ink);background:var(--red);color:#fff;
     font:900 18px/1 inherit;font-family:inherit;cursor:pointer;box-shadow:0 3px 0 rgba(20,30,40,.85);display:flex;align-items:center;justify-content:center;padding:0;z-index:2}
   .xbtn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(20,30,40,.85)}
+  #cheatModal .modal{background:#1b1b1f;color:#e8e2d0;border:3px solid #6b5a3a;border-radius:10px;max-width:440px;
+    font-family:"Courier New",ui-monospace,monospace;box-shadow:0 0 0 2px #000,0 10px 30px rgba(0,0,0,.6)}
+  #cheatModal h2{font-size:17px;margin:0 0 8px;padding:6px 8px;background:#2c2618;border:1px solid #6b5a3a;color:#ffd96a;text-align:center;letter-spacing:1px}
+  #cheatModal h3{font-size:12px;margin:10px 0 4px;color:#ffd96a;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #4a3f28;padding-bottom:2px}
+  #cheatModal .gridc{display:flex!important;flex-wrap:wrap;gap:4px}
+  #cheatModal .btn{background:#3a3326;color:#f3ead0;border:1px solid #8a744a;border-radius:3px;box-shadow:none;
+    font:700 12px "Courier New",monospace;padding:4px 7px!important;margin:0;width:auto;min-height:0}
+  #cheatModal .btn:hover{background:#51452d}
+  #cheatModal .btn:active{transform:translateY(1px);background:#6b5a3a}
+  #cheatModal .btn.neg{border-color:#b85a4a;color:#ffb3a5}
+  #cheatModal .crow{display:flex;gap:4px;align-items:center;margin-top:5px}
+  #cheatModal .crow input{flex:1;min-width:0;background:#0f0f12;color:#ffd96a;border:1px solid #8a744a;border-radius:3px;padding:4px 6px;font:700 13px "Courier New",monospace}
+  #cheatModal #closeCheat{display:block;margin:12px auto 0;font-size:13px}
 </style>
 </head>
 <body>
@@ -328,7 +366,7 @@
 
   <div id="rockWrap">
     <div id="rockShadow"></div>
-    <div id="rockInner"><img id="rockImg" alt="Your rock" draggable="false"><svg id="acc" viewBox="0 0 100 62" preserveAspectRatio="none"></svg></div>
+    <div id="rockInner"><img id="rockImg" alt="Your rock" draggable="false"><div id="blood"></div><svg id="acc" viewBox="0 0 100 62" preserveAspectRatio="none"></svg></div>
   </div>
   <div id="weather"></div>
   <div id="visitors"></div>
@@ -354,6 +392,7 @@
   <button id="statBtn" class="btn ibtn" data-title="Stats">📊</button>
   <button id="sndBtn" class="btn ibtn" data-title="Sound">🔊</button>
   <button id="shareBtn" class="btn ibtn" data-title="Share">📸</button>
+  <button id="cheatBtn" class="btn ibtn" data-title="Cheats" style="display:none">🕹️</button>
   <button id="installBtn" class="btn ibtn" data-title="Install" style="display:none">📲</button>
 </div>
 <div id="confetti"></div>
@@ -410,9 +449,10 @@
 <div id="statModal" class="overlay">
   <div class="modal panel">
     <h2>📊 <span data-i18n="Stats">Stats</span></h2>
-    <input id="nameIn" class="nameIn" type="text" maxlength="14" autocomplete="off">
+    <input id="nameIn" class="nameIn" type="text" maxlength="30" autocomplete="off">
     <div id="statRows" style="margin-top:10px"></div>
     <div id="coll" class="coll"></div>
+    <div id="collInfo"></div>
     <button id="closeStat" class="btn gray" data-i18n="Close">Close</button>
   </div>
 </div>
@@ -426,6 +466,15 @@
     <label class="sndRow"><span data-i18n="Music">Music</span><input id="sndMus" type="range" min="0" max="100"></label>
     <p><button id="sndMute" class="btn red"></button></p>
     <button id="closeSnd" class="btn gray" data-i18n="Close">Close</button>
+  </div>
+</div>
+
+<!-- cheats (secret) -->
+<div id="cheatModal" class="overlay">
+  <div class="modal panel">
+    <h2>🕹️ Cheats</h2>
+    <div id="cheatBody" style="text-align:left"></div>
+    <button id="closeCheat" class="btn gray" style="margin-top:12px">Close</button>
   </div>
 </div>
 
@@ -528,6 +577,7 @@
     {id:"beach",  name:"Beach",  icon:"🏖️", sw:"linear-gradient(#3fc1f0,#1b8ec6 50%,#edd28c 50%)"},
     {id:"autumn", name:"Autumn", icon:"🍂", sw:"linear-gradient(#7fb8e0,#f1d3a6 55%,#b97a30)"},
     {id:"blossom",name:"Blossom",icon:"🌸", sw:"linear-gradient(#86d1fb,#fde3ef 60%,#aedd72)"},
+    {id:"bloodrain",name:"Blood rain",icon:"🩸", sw:"linear-gradient(#0d0204,#7a1a14)"},
     {id:"storm",  name:"Storm",  icon:"⛈️", sw:"linear-gradient(#1b232c,#55626d)"},
     {id:"volcano",name:"Volcano",icon:"🌋", sw:"linear-gradient(#240c0e,#d4562a)"},
     {id:"underwater",name:"Underwater",icon:"🐠", sw:"linear-gradient(#0b6fa3,#58d2d6)"},
@@ -576,10 +626,10 @@
 
   /* ---------- helpers ---------- */
   function pad(n){return n < 10 ? "0"+n : ""+n;}
-  function age(){return Math.max(0, Date.now() - state.start);}
+  function age(){return Date.now() - state.start;}
   function split(ms){
-    var s = Math.floor(ms/1000);
-    return {d:Math.floor(s/86400), h:Math.floor(s%86400/3600), m:Math.floor(s%3600/60), s:s%60};
+    var neg = ms < 0, s = Math.floor(Math.abs(ms)/1000);
+    return {neg:neg, d:Math.floor(s/86400), h:Math.floor(s%86400/3600), m:Math.floor(s%3600/60), s:s%60};
   }
   function fmt(ms){
     var u = split(ms), out = [];
@@ -587,7 +637,7 @@
     if(u.d || u.h) out.push(u.h+tr("h"));
     if(u.d || u.h || u.m) out.push(u.m+tr("m"));
     out.push(u.s+tr("s"));
-    return out.join(" ");
+    return (u.neg ? "-" : "") + out.join(" ");
   }
 
   /* ---------- rock sizing ---------- */
@@ -598,7 +648,7 @@
     maxW = Math.max(minW+40, Math.min(w*0.8, (h*0.58 - 110)/0.63));
   }
   function widthAt(ms){
-    var f = 1 - Math.exp(-(ms/DAY)/GROW_DAYS);
+    var f = 1 - Math.exp(-(Math.max(0, ms)/DAY)/GROW_DAYS);
     return minW + (maxW-minW)*f;
   }
 
@@ -607,6 +657,7 @@
   function setRock(id){
     var r = ROCKS.filter(function(x){return x.id === id;})[0] || ROCKS[0];
     rockImg.src = r.src;
+    $("blood").style.webkitMaskImage = $("blood").style.maskImage = "url(" + r.src + ")";
     state.rock = r.id;
     save();
     var cards = document.querySelectorAll("#grid .card");
@@ -623,7 +674,7 @@
     return "night";
   }
   function rnd(a,b){return a + Math.random()*(b-a);}
-  var METER = {rain:["🌧️","Rain"], storm:["⛈️","Rain"], snow:["❄️","Snow"], autumn:["🍂","Falling leaves"], blossom:["🌸","Petals"], candy:["🍬","Sprinkles"], underwater:["🫧","Bubbles"], volcano:["🔥","Embers"]};
+  var METER = {rain:["🌧️","Rain"], storm:["⛈️","Rain"], bloodrain:["🩸","Blood rain"], snow:["❄️","Snow"], autumn:["🍂","Falling leaves"], blossom:["🌸","Petals"], candy:["🍬","Sprinkles"], underwater:["🫧","Bubbles"], volcano:["🔥","Embers"]};
   function spdMult(){ return 0.3 * Math.pow(11.1, state.wx.speed/100); }
   function amtMult(){ var v = state.wx.amount; return v <= 50 ? 0.05 + 0.95*v/50 : 1 + 1.5*(v-50)/50; }
   function applySpeed(){
@@ -683,11 +734,20 @@
     if(env === "volcano") spawn(30,"ember",function(e){e.style.animationDuration=rnd(4,9)+"s";e.style.animationDelay=(-rnd(0,9))+"s";});
     if(env === "candy") spawn(40,"sprinkle",function(e){var C=["#ff4d9a","#4dc3ff","#ffd84d","#7dff9a","#b26bff"];e.style.background=C[(Math.random()*C.length)|0];e.style.animationDuration=rnd(6,12)+"s";e.style.animationDelay=(-rnd(0,12))+"s";});
     if(env === "jungle") spawn(22,"firefly",function(e){e.style.top=rnd(35,85)+"%";e.style.animationDuration=rnd(3,7)+"s";e.style.animationDelay=(-rnd(0,7))+"s";});
+    if(env === "bloodrain"){
+      deco.innerHTML = '<div class="trees t2"></div><div class="trees t1"></div>';
+      [[8,50],[22,56],[38,47],[55,53],[70,49],[84,55],[93,48]].forEach(function(p){
+        var ey = document.createElement("i"); ey.className = "eyes"; ey.style.left = p[0]+"%"; ey.style.top = p[1]+"%";
+        ey.style.animationDelay = (-rnd(0,4.5))+"s"; deco.appendChild(ey);
+      });
+      spawn(120,"bdrop",function(e){e.style.left=rnd(0,115)+"%";e.style.animationDuration=rnd(.5,.85)+"s";e.style.animationDelay=rnd(0,1)+"s";});
+      el = document.createElement("div"); el.className = "flash"; el.style.animationDelay = (-rnd(0,7))+"s"; weather.appendChild(el);
+    }
     if(env === "storm"){
       spawn(150,"drop",function(e){e.style.left=rnd(0,115)+"%";e.style.animationDuration=rnd(.4,.65)+"s";e.style.animationDelay=rnd(0,1)+"s";});
       el = document.createElement("div"); el.className = "flash"; el.style.animationDelay = (-rnd(0,7))+"s"; weather.appendChild(el);
     }
-    if(env === "night" || env === "moon" || env === "aurora" || env === "eclipse" || env === "space"){
+    if(env === "night" || env === "moon" || env === "aurora" || env === "eclipse" || env === "space" || env === "bloodrain"){
       for(k=0;k<55;k++){
         el = document.createElement("div"); el.className = "star";
         el.style.left = rnd(0,100)+"%"; el.style.top = rnd(0,52)+"%";
@@ -723,11 +783,11 @@
   var wrap = $("rockWrap");
   function render(){
     var a = age(), t = split(a);
-    $("tD").textContent = t.d;
+    $("tD").textContent = (t.neg ? "-" : "") + t.d;
     $("tH").textContent = pad(t.h);
     $("tM").textContent = pad(t.m);
     $("tS").textContent = pad(t.s);
-    var pct = (a % DAY) / DAY * 100;
+    var pct = (((a % DAY) + DAY) % DAY) / DAY * 100;
     $("pct").textContent = pct.toFixed(1) + "%";
     $("barFill").style.width = pct + "%";
     wrap.style.width = widthAt(a) + "px";
@@ -832,6 +892,7 @@
   // environment grid
   var envGrid = $("envGrid");
   ENVS.forEach(function(e){
+    if(e.id === "bloodrain") return;            // cheat-only environment
     var b = document.createElement("button");
     b.className = "card"; b.dataset.id = e.id; b.type = "button";
     b.innerHTML = '<div class="sw" style="background:'+e.sw+'">'+e.icon+'</div><span data-i18n="'+e.name+'">'+e.name+'</span>';
@@ -858,7 +919,7 @@
   });
 
   // click outside closes the choose / reset popups
-  ["chooseModal","resetModal","envModal","accModal","langModal","msModal","statModal","sndModal","stageModal"].forEach(function(id){
+  ["chooseModal","resetModal","envModal","accModal","langModal","msModal","statModal","sndModal","stageModal","cheatModal"].forEach(function(id){
     $(id).addEventListener("pointerdown", function(e){ if(e.target === $(id)) hide(id); });
   });
 
@@ -867,7 +928,7 @@
     var now = Date.now(), gap = now - fromMs;
     if(gap < AWAY_MIN) return;
     var ageNow = now - state.start;
-    var ageThen = Math.max(0, fromMs - state.start);
+    var ageThen = fromMs - state.start;
     var wNow = widthAt(ageNow), wThen = widthAt(ageThen);
     var pct = (wNow/wThen - 1) * 100;
     var pctText = (pct < 0.01 ? "<0.01" : pct.toFixed(2)) + "%";
@@ -909,7 +970,7 @@
     for(var i=0;i<STAGES.length;i++) if(d >= STAGES[i].d) s = i;
     return s;
   }
-  function unlocked(req){ return !req || UNLOCK_ALL || stageIdx() >= req; }
+  function unlocked(req){ return !req || UNLOCK_ALL || state.cheatUnlock || stageIdx() >= req; }
   function itemList(){
     var out = [], ICON = {hat:"🎩", face:"👓", neck:"🎀"};
     ROCKS.forEach(function(r){ out.push({req:r.req, name:r.name, icon:"🎨"}); });
@@ -931,7 +992,9 @@
   var lastPill = "";
   function updatePill(force){
     var s = STAGES[stageIdx()];
-    var txt = (state.name ? state.name + " · " : "") + s.icon + " " + tr(s.k);
+    var cheat = isCheatName(state.name);
+    var cb = $("cheatBtn"); if(cb) cb.style.display = cheat ? "" : "none";
+    var txt = (state.name && !cheat ? state.name + " · " : "") + s.icon + " " + tr(s.k);
     if(txt !== lastPill || force){ $("stage").textContent = txt; lastPill = txt; }
   }
   function overlayOpen(){ return !!document.querySelector(".overlay.show"); }
@@ -980,9 +1043,26 @@
       $("mBar").style.width = "100%"; $("mNext").textContent = "👑";
     }
   }
-  var ALLVIS = [];
+  var ALLVIS = [], selVis = null;
+  var SPECIES = {"🦋":"Butterfly","🐦":"Bird","🐞":"Ladybug","🐝":"Bee","🐇":"Rabbit","🐌":"Snail","🦇":"Bat","🦉":"Owl","🦗":"Cricket","🐧":"Penguin","🐸":"Frog","🦎":"Lizard","🐍":"Snake","🦂":"Scorpion","🚀":"Rocket","🛸":"UFO","🐿️":"Squirrel","🦀":"Crab","🐢":"Turtle","🦊":"Fox","🐟":"Fish","🐠":"Tropical fish","🐙":"Octopus","🦜":"Parrot","🐒":"Monkey","🛰️":"Satellite","🐰":"Bunny","🦄":"Unicorn","🕷️":"Spider","🐀":"Rat","👻":"Ghost"};
+  function envLabel(id){ var e = ENVS.filter(function(x){ return x.id === id; })[0]; return e ? e.icon + " " + tr(e.name) : "?"; }
+  function livesIn(emoji){ return Object.keys(VIS).filter(function(k){ return VIS[k].some(function(v){ return v[0] === emoji; }); }); }
+  function showVisInfo(e){
+    selVis = e;
+    var box = $("collInfo"), where = state.seen[e], n = SPECIES[e] || "Visitor";
+    var spans = document.querySelectorAll("#coll span");
+    for(var i=0;i<spans.length;i++) spans[i].classList.toggle("sel", spans[i].dataset.e === e);
+    if(where){
+      box.innerHTML = '<b>' + e + " " + n + "</b><br>📍 Found in: " + (where === "cheat" || where === 1 ? "somewhere (unknown)" : envLabel(where)) +
+        "<br>🌍 Lives in: " + livesIn(e).map(envLabel).join(", ");
+    }else{
+      box.innerHTML = "<b>❓ Unknown visitor</b><br>Not found yet. Keep your eyes on the sky and the ground, and tap it when it shows up!";
+    }
+    box.style.display = "block";
+  }
+  $("coll").addEventListener("click", function(ev){ var s = ev.target.closest("span[data-e]"); if(s) showVisInfo(s.dataset.e); });
   function renderStats(){
-    var s = STAGES[stageIdx()], f = 1 - Math.exp(-(age()/DAY)/GROW_DAYS), found = 0;
+    var s = STAGES[stageIdx()], f = 1 - Math.exp(-(Math.max(0, age())/DAY)/GROW_DAYS), found = 0;
     ALLVIS.forEach(function(e){ if(state.seen[e]) found++; });
     var rows = [
       [tr("Age"), fmt(age())],
@@ -992,14 +1072,18 @@
       [tr("Visitors found"), state.visitors + " (" + found + "/" + ALLVIS.length + ")"]
     ];
     $("statRows").innerHTML = rows.map(function(r){ return '<div class="srow"><span>' + r[0] + "</span><span>" + r[1] + "</span></div>"; }).join("");
-    $("coll").innerHTML = ALLVIS.map(function(e){ return state.seen[e] ? "<span>" + e + "</span>" : '<span class="no">❓</span>'; }).join("");
+    $("coll").innerHTML = ALLVIS.map(function(e){ return state.seen[e] ? '<span data-e="' + e + '">' + e + "</span>" : '<span class="no" data-e="' + e + '">❓</span>'; }).join("");
+    if(selVis) showVisInfo(selVis);
     if(document.activeElement !== $("nameIn")) $("nameIn").value = state.name;
   }
   $("msBtn").addEventListener("click", function(){ renderMilestones(); show("msModal"); });
   $("closeMs").addEventListener("click", function(){ hide("msModal"); });
   $("statBtn").addEventListener("click", function(){ renderStats(); show("statModal"); });
   $("closeStat").addEventListener("click", function(){ hide("statModal"); });
-  $("nameIn").addEventListener("input", function(){ state.name = this.value.slice(0,14); save(); updatePill(true); });
+  $("nameIn").addEventListener("input", function(){
+    state.name = this.value.slice(0,30); save(); updatePill(true);
+    if(isCheatName(state.name)){ hide("statModal"); renderCheats(); show("cheatModal"); toast("🕹️ Cheats unlocked!"); }
+  });
 
   /* ---------- sound (all generated in the browser, no files) ---------- */
   var AC = null, nodes = {}, ambBus = null, ambStop = [], ambTimers = [], musTimer = null;
@@ -1056,7 +1140,7 @@
 
   var AMB = {
     day:{wind:.6, ev:[["chirp",5500]]}, sunrise:{wind:.35, ev:[["chirp",1800]]}, sunset:{wind:.45, ev:[["cricket",1100],["chirp",14000]]}, night:{wind:.25, ev:[["cricket",450]]},
-    snow:{wind:1}, rain:{rain:.8}, storm:{rain:1.1, wind:.5, thunder:1}, desert:{wind:.9}, moon:{drone:55},
+    snow:{wind:1}, rain:{rain:.8}, storm:{rain:1.1, wind:.5, thunder:1}, bloodrain:{rain:.75, drone:41, wind:.2, thunder:1}, desert:{wind:.9}, moon:{drone:55},
     forest:{wind:.35, ev:[["chirp",2600]]}, beach:{waves:1}, autumn:{wind:.75, ev:[["chirp",10000]]}, blossom:{wind:.3, ev:[["chirp",2600]]},
     volcano:{rumble:1, ev:[["pop",800]]}, underwater:{under:1, ev:[["bubble",1000]]}, aurora:{wind:.3, drone:73},
     eclipse:{wind:.15, drone:48, ev:[["cricket",800]]}, jungle:{wind:.2, ev:[["chirp",1500],["cricket",600]]}, space:{drone:60}, candy:{ev:[["bell",1500]]}
@@ -1127,7 +1211,7 @@
     space:{base:130.81, scale:[0,2,7,9], gap:[2.8,5], oct:[0,1], type:"sine", rel:3.4},
     bright:{base:392, scale:[0,2,4,7,9], gap:[.9,2], oct:[0,1], type:"triangle", rel:1}
   };
-  var MUS_ENV = {night:"minor", rain:"minor", storm:"minor", eclipse:"minor", volcano:"minor", space:"space", moon:"space", aurora:"space", candy:"bright"};
+  var MUS_ENV = {bloodrain:"minor", night:"minor", rain:"minor", storm:"minor", eclipse:"minor", volcano:"minor", space:"space", moon:"space", aurora:"space", candy:"bright"};
   function startMusic(env){
     clearTimeout(musTimer);
     if(!AC) return;
@@ -1175,7 +1259,7 @@
     night:[["🦇","fly"],["🦉","fly"],["🦗","walk"]], snow:[["🐧","walk"],["🐇","walk"]], rain:[["🐸","walk"],["🐌","walk"],["🐦","fly"]],
     desert:[["🦎","walk"],["🐍","walk"],["🦂","walk"]], moon:[["🚀","fly"],["🛸","fly"]], forest:[["🦋","fly"],["🐿️","walk"],["🐦","fly"]],
     beach:[["🦀","walk"],["🐢","walk"],["🐦","fly"]], autumn:[["🦊","walk"],["🐿️","walk"],["🐦","fly"]], blossom:[["🦋","fly"],["🐝","fly"],["🐇","walk"]],
-    storm:[["🐸","walk"],["🐌","walk"]], volcano:[["🦎","walk"],["🦇","fly"]], underwater:[["🐟","swim"],["🐠","swim"],["🐢","swim"],["🐙","swim"]],
+    bloodrain:[["🦇","fly"],["🕷️","walk"],["🐀","walk"],["👻","fly"]], storm:[["🐸","walk"],["🐌","walk"]], volcano:[["🦎","walk"],["🦇","fly"]], underwater:[["🐟","swim"],["🐠","swim"],["🐢","swim"],["🐙","swim"]],
     aurora:[["🦊","walk"],["🐧","walk"],["🦉","fly"]], eclipse:[["🦇","fly"],["🦉","fly"],["🦗","walk"]], jungle:[["🦜","fly"],["🐒","walk"],["🐍","walk"],["🦋","fly"]],
     space:[["🛸","fly"],["🚀","fly"],["🛰️","fly"]], candy:[["🐰","walk"],["🦄","walk"],["🦋","fly"]]
   };
@@ -1235,7 +1319,7 @@
     if(el.dataset.c) return;
     el.dataset.c = "1";
     var isNew = !state.seen[emoji];
-    state.visitors++; state.seen[emoji] = 1; save(); sfx("catch");
+    state.visitors++; state.seen[emoji] = scene.dataset.env || "day"; save(); sfx("catch");
     el.getAnimations().forEach(function(a){ a.pause(); });
     var h = document.createElement("div");
     h.className = "floatText"; h.textContent = "❤️";
@@ -1338,6 +1422,61 @@
     updatePill(true); renderMilestones(); renderStats(); updateSndUI();
   }
   window.rockLifeDebug = {spawnVisitor:spawnVisitor, sceneToCanvas:sceneToCanvas, audio:function(){ return AC ? AC.state + " amb:" + ambStop.length + " timers:" + ambTimers.length : "none"; }};
+
+  /* ---------- secret cheat menu (name the rock the secret code) ---------- */
+  var CHEAT_CODE = "EDMONDESTTROPLEGOAT67TUFF";
+  function isCheatName(n){ return String(n).trim().toUpperCase() === CHEAT_CODE; }
+  function cheatBtn(label, fn){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "btn"; b.textContent = label;
+    b.addEventListener("click", fn); return b;
+  }
+  function cheatSection(box, title, btns){
+    var h = document.createElement("h3"), g = document.createElement("div");
+    h.textContent = title; g.className = "gridc";
+    btns.forEach(function(b){ g.appendChild(b); });
+    box.appendChild(h); box.appendChild(g);
+  }
+  function renderCheats(){
+    var box = $("cheatBody"), HOUR = 3600000;
+    box.innerHTML = "";
+    function shift(ms, label){
+      state.start -= ms;
+      save(); render(); refreshLocks(); updatePill(true); toast("⏩ " + label);
+    }
+    var tt = [["1 hour",HOUR],["6 hours",6*HOUR],["1 day",DAY],["7 days",7*DAY],["30 days",30*DAY],["100 days",100*DAY]];
+    cheatSection(box, "⏩ Add time", tt.map(function(a){ return cheatBtn("+" + a[0], function(){ shift(a[1], "+" + a[0]); }); }));
+    cheatSection(box, "⏪ Delete time", tt.map(function(a){
+      var b = cheatBtn("−" + a[0], function(){ shift(-a[1], "−" + a[0]); }); b.className += " neg"; return b;
+    }));
+    var row = document.createElement("div"); row.className = "crow";
+    var inp = document.createElement("input"); inp.type = "number"; inp.step = "any"; inp.placeholder = "days"; inp.value = "10";
+    var add = cheatBtn("Add", function(){ var v = parseFloat(inp.value); if(v > 0) shift(v*DAY, "+" + v + " days"); });
+    var del = cheatBtn("Delete", function(){ var v = parseFloat(inp.value); if(v > 0) shift(-v*DAY, "−" + v + " days"); }); del.className += " neg";
+    var zero = cheatBtn("Set to 0", function(){ state.start = Date.now(); save(); render(); refreshLocks(); updatePill(true); toast("⏪ 0 days"); }); zero.className += " neg";
+    row.appendChild(inp); row.appendChild(add); row.appendChild(del); row.appendChild(zero);
+    var h = document.createElement("h3"); h.textContent = "🔢 Custom days"; box.appendChild(h); box.appendChild(row);
+    cheatSection(box, "🏅 Jump to stage", STAGES.map(function(s,i){
+      return cheatBtn(s.icon + " " + s.k, function(){
+        state.start = Date.now() - s.d*DAY - 1000;
+        if(state.stageSeen > i) state.stageSeen = i;
+        save(); render(); refreshLocks(); updatePill(true); hide("cheatModal"); toast(s.icon + " " + s.k);
+      });
+    }));
+    cheatSection(box, "🎁 Extras", [
+      cheatBtn(state.cheatUnlock ? "🔓 Unlock all: ON" : "🔒 Unlock all: OFF", function(){ state.cheatUnlock = !state.cheatUnlock; save(); refreshLocks(); renderCheats(); }),
+      cheatBtn(state.env === "bloodrain" ? "🩸 Blood rain: ON" : "🩸 Blood rain", function(){
+        if(state.env === "bloodrain"){ state.env = "auto"; } else { state.env = "bloodrain"; }
+        save(); applyEnv(); renderCheats(); toast(state.env === "bloodrain" ? "🩸 Blood rain" : "🕒 Auto");
+      }),
+      cheatBtn("🦋 Spawn visitor", function(){ hide("cheatModal"); spawnVisitor(true); }),
+      cheatBtn("📖 Find all visitors", function(){ ALLVIS.forEach(function(e){ if(!state.seen[e]) state.seen[e] = livesIn(e)[0] || "cheat"; }); save(); toast("📖 " + ALLVIS.length + "/" + ALLVIS.length); }),
+      cheatBtn("👆 +100 taps", function(){ state.taps += 100; save(); toast("👆 +100"); }),
+      cheatBtn("🎉 Confetti", function(){ confetti(); sfx("stage"); })
+    ]);
+  }
+  $("closeCheat").addEventListener("click", function(){ hide("cheatModal"); });
+  $("cheatBtn").addEventListener("click", function(){ if(isCheatName(state.name)){ renderCheats(); show("cheatModal"); } });
 
   /* ---------- red X on every window ---------- */
   Array.prototype.forEach.call(document.querySelectorAll(".overlay"), function(ov){
